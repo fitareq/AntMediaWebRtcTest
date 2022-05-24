@@ -62,7 +62,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/start_streaming_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/start_streaming_button"
-            app:layout_constraintTop_toTopOf="@+id/start_streaming_button" />
+            app:layout_constraintTop_toTopOf="@+id/start_streaming_button"
+            android:contentDescription="@string/todo"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
