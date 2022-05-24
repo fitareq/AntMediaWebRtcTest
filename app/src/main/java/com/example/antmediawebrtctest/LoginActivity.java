@@ -2,7 +2,9 @@ package com.example.antmediawebrtctest;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -30,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        requestPermission();
         requestQueue = Volley.newRequestQueue(this);
         phone = findViewById(R.id.login_phone);
         password = findViewById(R.id.login_password);
@@ -61,5 +64,9 @@ public class LoginActivity extends AppCompatActivity {
         };
         requestQueue.add(stringRequest);
 
+    }
+
+    private void requestPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO}, 22);
     }
 }

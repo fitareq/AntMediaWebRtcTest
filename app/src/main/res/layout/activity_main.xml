@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <org.webrtc.SurfaceViewRenderer
         android:id="@+id/camera_view_renderer"
         android:layout_width="match_parent"
@@ -45,6 +47,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/mute_mic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_mic_off_24"
@@ -55,7 +58,7 @@
             android:contentDescription="@string/todo" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/flip_camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_flip_camera_ios_24"
@@ -64,6 +67,7 @@
             app:layout_constraintStart_toEndOf="@+id/start_streaming_button"
             app:layout_constraintTop_toTopOf="@+id/start_streaming_button"
             android:contentDescription="@string/todo"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

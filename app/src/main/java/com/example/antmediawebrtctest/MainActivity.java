@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
 
     private SurfaceViewRenderer cameraViewRenderer;
     private SurfaceViewRenderer pipViewRenderer;
+    private ImageView flipCamera, muteMic;
 
 
     // variables for handling reconnection attempts after disconnected
@@ -90,9 +93,9 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
         }
     }
 
-    private void requestPermission() {
+    /*private void requestPermission() {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO}, 22);
-    }
+    }*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,8 +107,10 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
 
 
 
-        requestPermission();
+        //requestPermission();
 
+        flipCamera = findViewById(R.id.flip_camera);
+        muteMic = findViewById(R.id.mute_mic);
         cameraViewRenderer = findViewById(R.id.camera_view_renderer);
         pipViewRenderer = findViewById(R.id.pip_view_renderer);
         startStreamingButton = findViewById(R.id.start_streaming_button);
@@ -134,6 +139,18 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
 
 
         startStreamingButton.setOnClickListener(view -> startStreaming());
+        flipCamera.setOnClickListener(view -> {
+            webRTCClient.switchCamera();
+        });
+        muteMic.setOnClickListener(view -> {
+            if (muteMic.isSelected()){
+                muteMic.setSelected(false);
+                muteMic.clearColorFilter();
+            }else {
+                muteMic.setSelected(true);
+                muteMic.setColorFilter(getResources().getColor(R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+            }
+        });
 
     }
 
