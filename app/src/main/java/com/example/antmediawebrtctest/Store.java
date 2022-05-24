@@ -1,5 +1,4 @@
 package com.example.antmediawebrtctest;
 
-public class Vendor {
-
+public class Store {
 }
