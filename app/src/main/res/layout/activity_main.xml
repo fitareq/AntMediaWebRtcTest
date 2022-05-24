@@ -51,7 +51,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/start_streaming_button"
             app:layout_constraintEnd_toStartOf="@+id/start_streaming_button"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/start_streaming_button" />
+            app:layout_constraintTop_toTopOf="@+id/start_streaming_button"
+            android:contentDescription="@string/todo" />
 
         <ImageView
             android:id="@+id/imageView"
