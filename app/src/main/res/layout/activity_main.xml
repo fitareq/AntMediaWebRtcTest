@@ -25,14 +25,47 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/start_streaming_button"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Go Live"
-        android:textAllCaps="false"/>
+        android:background="@drawable/grad_bg">
+
+        <Button
+            android:id="@+id/start_streaming_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Go Live"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_mic_off_24"
+            app:layout_constraintBottom_toBottomOf="@+id/start_streaming_button"
+            app:layout_constraintEnd_toStartOf="@+id/start_streaming_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/start_streaming_button" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_flip_camera_ios_24"
+            app:layout_constraintBottom_toBottomOf="@+id/start_streaming_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/start_streaming_button"
+            app:layout_constraintTop_toTopOf="@+id/start_streaming_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
