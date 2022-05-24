@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         }, error -> {
             Toast.makeText(this, "Something went wrong!!", Toast.LENGTH_LONG).show();
         }){
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
