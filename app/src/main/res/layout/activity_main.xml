@@ -7,7 +7,6 @@
     tools:context=".MainActivity">
 
 
-
     <org.webrtc.SurfaceViewRenderer
         android:id="@+id/camera_view_renderer"
         android:layout_width="match_parent"
@@ -30,10 +29,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/grad_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/grad_bg">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/start_streaming_button"
@@ -41,6 +40,7 @@
             android:layout_height="wrap_content"
             android:text="Go Live"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,28 +50,25 @@
             android:id="@+id/mute_mic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
             android:src="@drawable/ic_baseline_mic_off_24"
             app:layout_constraintBottom_toBottomOf="@+id/start_streaming_button"
             app:layout_constraintEnd_toStartOf="@+id/start_streaming_button"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/start_streaming_button"
-            android:contentDescription="@string/todo" />
+            app:layout_constraintTop_toTopOf="@+id/start_streaming_button" />
 
         <ImageView
             android:id="@+id/flip_camera"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/todo"
             android:src="@drawable/ic_baseline_flip_camera_ios_24"
             app:layout_constraintBottom_toBottomOf="@+id/start_streaming_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/start_streaming_button"
-            app:layout_constraintTop_toTopOf="@+id/start_streaming_button"
-            android:contentDescription="@string/todo"/>
+            app:layout_constraintTop_toTopOf="@+id/start_streaming_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
