@@ -7,6 +7,8 @@
     tools:context=".MainActivity">
 
 
+
+
     <org.webrtc.SurfaceViewRenderer
         android:id="@+id/camera_view_renderer"
         android:layout_width="match_parent"
@@ -46,7 +48,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/mute_mic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,7 +58,9 @@
             app:layout_constraintEnd_toStartOf="@+id/start_streaming_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/start_streaming_button"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            app:riv_oval="true"
+            app:riv_mutate_background="true"/>
 
         <ImageView
             android:id="@+id/flip_camera"
@@ -68,6 +72,49 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/start_streaming_button"
             app:layout_constraintTop_toTopOf="@+id/start_streaming_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/grad_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="5dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/roundedImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:riv_border_color="@color/pink"
+            app:riv_border_width="1dp"
+            app:riv_corner_radius="20dp"
+            app:riv_mutate_background="true"
+            app:riv_oval="true"
+            app:riv_tile_mode="clamp"
+            android:src="@drawable/ic_baseline_flip_camera_ios_24"
+            />
+
+        <TextView
+            android:id="@+id/shop_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="shop name"
+            android:textColor="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/roundedImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="14sp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
