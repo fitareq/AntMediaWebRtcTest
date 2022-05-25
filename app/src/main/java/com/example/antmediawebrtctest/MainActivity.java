@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN |  WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+        getWindow().addFlags(/*WindowManager.LayoutParams.FLAG_FULLSCREEN |*/  WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
                 | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
                 | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         setContentView(R.layout.activity_main);
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
             }
         }
         this.getIntent().putExtra(EXTRA_CAPTURETOTEXTURE_ENABLED, true);
-        this.getIntent().putExtra(EXTRA_VIDEO_FPS, 180);
+        this.getIntent().putExtra(EXTRA_VIDEO_FPS, 30);
         this.getIntent().putExtra(EXTRA_VIDEO_BITRATE, 1500);
         this.getIntent().putExtra(EXTRA_CAPTURETOTEXTURE_ENABLED, true);
         this.getIntent().putExtra(EXTRA_DATA_CHANNEL_ENABLED, enableDataChannel);
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
         }
 
         webRTCClient = new WebRTCClient( this,this);
-        streamId = "daw1";
+        streamId = shop_name.replaceAll(" ", "-").toLowerCase();
         String tokenId = "";
         webRTCClient.setVideoRenderers(pipViewRenderer, cameraViewRenderer);
 
