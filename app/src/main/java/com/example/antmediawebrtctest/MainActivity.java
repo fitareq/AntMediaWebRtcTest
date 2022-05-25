@@ -22,6 +22,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.makeramen.roundedimageview.RoundedImageView;
+
 import org.webrtc.DataChannel;
 import org.webrtc.RendererCommon;
 import org.webrtc.SurfaceViewRenderer;
@@ -148,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
                 muteMic.clearColorFilter();
             }else {
                 muteMic.setSelected(true);
-                muteMic.setColorFilter(getResources().getColor(R.color.teal_700), PorterDuff.Mode.MULTIPLY);
+                muteMic.setColorFilter(getResources().getColor(R.color.teal_700), PorterDuff.Mode.DST_ATOP);
             }
         });
 
