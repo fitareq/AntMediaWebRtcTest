@@ -20,9 +20,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.makeramen.roundedimageview.RoundedImageView;
+import com.squareup.picasso.Picasso;
 
 import org.webrtc.DataChannel;
 import org.webrtc.RendererCommon;
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
     private SurfaceViewRenderer cameraViewRenderer;
     private SurfaceViewRenderer pipViewRenderer;
     private ImageView flipCamera, muteMic;
+    private RoundedImageView shopImage;
+    private TextView shopName;
 
 
     // variables for handling reconnection attempts after disconnected
@@ -101,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN |  WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
                 | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
                 | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
@@ -111,6 +115,11 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
 
         //requestPermission();
 
+        String shop_name = getIntent().getStringExtra("name");
+        String shop_image = getIntent().getStringExtra("logo");
+
+        shopName = findViewById(R.id.shop_name);
+        shopImage = findViewById(R.id.roundedImageView);
         flipCamera = findViewById(R.id.flip_camera);
         muteMic = findViewById(R.id.mute_mic);
         cameraViewRenderer = findViewById(R.id.camera_view_renderer);
@@ -130,6 +139,14 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
         this.getIntent().putExtra(EXTRA_CAPTURETOTEXTURE_ENABLED, true);
         this.getIntent().putExtra(EXTRA_DATA_CHANNEL_ENABLED, enableDataChannel);
 
+        if (shop_image != null){
+            shop_image = "https://static.durbar.live/"+shop_image;
+            Picasso.get().load(shop_image).into(shopImage);
+        }
+        if (shop_name != null){
+            shopName.setText(shop_name);
+        }
+
         webRTCClient = new WebRTCClient( this,this);
         streamId = "daw1";
         String tokenId = "";
@@ -147,10 +164,12 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
         muteMic.setOnClickListener(view -> {
             if (muteMic.isSelected()){
                 muteMic.setSelected(false);
+                muteMic.setBackgroundColor(0);
                 muteMic.clearColorFilter();
             }else {
                 muteMic.setSelected(true);
-                muteMic.setColorFilter(getResources().getColor(R.color.teal_700), PorterDuff.Mode.DST_ATOP);
+                muteMic.setBackgroundColor(getResources().getColor(R.color.pink));
+                //muteMic.setColorFilter(getResources().getColor(R.color.teal_700), PorterDuff.Mode.DST_ATOP);
             }
         });
 
