@@ -150,7 +150,8 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
         }
 
         webRTCClient = new WebRTCClient( this,this);
-        streamId = shop_name.replaceAll(" ", "-").toLowerCase()+"_"+store_id;
+        if (shop_name != null)
+            streamId = shop_name.replaceAll(" ", "-").toLowerCase()+"_"+store_id;
         streamUrl += streamId;
         String tokenId = "";
         webRTCClient.setVideoRenderers(pipViewRenderer, cameraViewRenderer);
