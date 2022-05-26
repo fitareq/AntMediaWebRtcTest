@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void requestPermission() {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA,
+
                 Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.BLUETOOTH,
                 Manifest.permission.CHANGE_NETWORK_STATE,
