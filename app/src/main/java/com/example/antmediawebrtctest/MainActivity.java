@@ -173,7 +173,6 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
             }else {
                 muteMic.setSelected(true);
                 muteMic.setBackgroundColor(getResources().getColor(R.color.pink));
-                //muteMic.setColorFilter(getResources().getColor(R.color.teal_700), PorterDuff.Mode.DST_ATOP);
             }
         });
 
