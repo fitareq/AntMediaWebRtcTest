@@ -180,6 +180,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
 
     private void startStreaming() {
         Log.v("url", streamUrl);
+
         if (webRTCClient.isStreaming()){
             startStreamingButton.setText("Go Live");
             webRTCClient.stopStream();
