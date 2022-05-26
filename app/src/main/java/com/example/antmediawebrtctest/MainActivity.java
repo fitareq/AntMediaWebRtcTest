@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
      * Change this address with your Ant Media Server address
      */
     public static final String SERVER_ADDRESS = "167.172.70.229:5080";
+    private String streamUrl = "http://167.172.70.229:5080/WebRTCAppEE/play.html?name=";
 
     /**
      * Mode can Publish, Play or P2P
@@ -117,6 +118,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
 
         String shop_name = getIntent().getStringExtra("name");
         String shop_image = getIntent().getStringExtra("logo");
+        String store_id = getIntent().getStringExtra("store");
 
         shopName = findViewById(R.id.shop_name);
         shopImage = findViewById(R.id.roundedImageView);
@@ -148,7 +150,8 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
         }
 
         webRTCClient = new WebRTCClient( this,this);
-        streamId = shop_name.replaceAll(" ", "-").toLowerCase();
+        streamId = shop_name.replaceAll(" ", "-").toLowerCase()+"_"+store_id;
+        streamUrl += streamId;
         String tokenId = "";
         webRTCClient.setVideoRenderers(pipViewRenderer, cameraViewRenderer);
 
@@ -176,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
     }
 
     private void startStreaming() {
+        Log.v("url", streamUrl);
         if (webRTCClient.isStreaming()){
             startStreamingButton.setText("Go Live");
             webRTCClient.stopStream();
