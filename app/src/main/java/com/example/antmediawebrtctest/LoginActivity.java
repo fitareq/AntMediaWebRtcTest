@@ -56,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.putExtra("name", vendor.getStore().get(0).getName());
             intent.putExtra("logo", vendor.getStore().get(0).getLogo());
+            intent.putExtra("store", String.valueOf(vendor.getStore().get(0).getId()));
             startActivity(intent);
         }, error -> {
             Log.v("api", "error: " + error);
