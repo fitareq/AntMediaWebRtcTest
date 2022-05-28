@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
 
             intent.putExtra("store", String.valueOf(vendor.getStore().get(0).getId()));
             startActivity(intent);
+
         }, error -> {
             Log.v("api", "error: " + error);
             Toast.makeText(this, "Something went wrong!!", Toast.LENGTH_LONG).show();
