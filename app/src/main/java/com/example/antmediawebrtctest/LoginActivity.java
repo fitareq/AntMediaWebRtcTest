@@ -62,6 +62,8 @@ public class LoginActivity extends AppCompatActivity {
             Log.v("api", "error: " + error);
             Toast.makeText(this, "Something went wrong!!", Toast.LENGTH_LONG).show();
             login.setEnabled(true);
+
+
         }) {
 
             @Override
