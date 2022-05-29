@@ -87,7 +87,6 @@ public class LoginActivity extends AppCompatActivity {
                 Manifest.permission.RECORD_AUDIO,
 
                 Manifest.permission.BLUETOOTH,
-
                 Manifest.permission.CHANGE_NETWORK_STATE,
                 Manifest.permission.MODIFY_AUDIO_SETTINGS,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
