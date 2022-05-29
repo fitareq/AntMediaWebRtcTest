@@ -90,7 +90,6 @@ public class LoginActivity extends AppCompatActivity {
 
                 Manifest.permission.CHANGE_NETWORK_STATE,
                 Manifest.permission.MODIFY_AUDIO_SETTINGS,
-
                 Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.READ_PHONE_STATE,
