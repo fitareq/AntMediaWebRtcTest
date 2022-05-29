@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
         setContentView(R.layout.activity_main);
 
 
-
         //requestPermission();
 
         String shop_name = getIntent().getStringExtra("name");
@@ -141,17 +140,17 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
         this.getIntent().putExtra(EXTRA_CAPTURETOTEXTURE_ENABLED, true);
         this.getIntent().putExtra(EXTRA_DATA_CHANNEL_ENABLED, enableDataChannel);
 
-        if (shop_image != null){
-            shop_image = "https://static.durbar.live/"+shop_image;
+        if (shop_image != null) {
+            shop_image = "https://static.durbar.live/" + shop_image;
             Picasso.get().load(shop_image).into(shopImage);
         }
-        if (shop_name != null){
+        if (shop_name != null) {
             shopName.setText(shop_name);
         }
 
-        webRTCClient = new WebRTCClient( this,this);
+        webRTCClient = new WebRTCClient(this, this);
         if (shop_name != null)
-            streamId = shop_name.replaceAll(" ", "-").toLowerCase()+"_"+store_id;
+            streamId = shop_name.replaceAll(" ", "-").toLowerCase() + "_" + store_id;
         streamUrl += streamId;
         String tokenId = "";
         webRTCClient.setVideoRenderers(pipViewRenderer, cameraViewRenderer);
@@ -166,11 +165,11 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
             webRTCClient.switchCamera();
         });
         muteMic.setOnClickListener(view -> {
-            if (muteMic.isSelected()){
+            if (muteMic.isSelected()) {
                 muteMic.setSelected(false);
                 muteMic.setBackgroundColor(0);
                 muteMic.clearColorFilter();
-            }else {
+            } else {
                 muteMic.setSelected(true);
                 muteMic.setBackgroundColor(getResources().getColor(R.color.pink));
             }
@@ -181,11 +180,11 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
     private void startStreaming() {
         Log.v("url", streamUrl);
 
-        if (webRTCClient.isStreaming()){
+        if (webRTCClient.isStreaming()) {
             startStreamingButton.setText("Go Live");
             webRTCClient.stopStream();
             stoppedStream = true;
-        }else {
+        } else {
             startStreamingButton.setText("End");
             webRTCClient.startStream();
             stoppedStream = false;
@@ -193,18 +192,11 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
     }
 
 
-
-
-
-
-
     @Override
     protected void onStop() {
         super.onStop();
         webRTCClient.stopStream();
     }
-
-
 
 
     @Override
@@ -248,7 +240,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
 
     @Override
     public void onError(String description, String streamId) {
-        Toast.makeText(this, "Error: "  +description , Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Error: " + description, Toast.LENGTH_LONG).show();
     }
 
 
