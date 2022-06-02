@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
     /**
      * Change this address with your Ant Media Server address
      */
-    public static final String SERVER_ADDRESS = "167.172.70.229:5080";
-    private String streamUrl = "http://167.172.70.229:5080/WebRTCAppEE/play.html?name=";
+    public static final String SERVER_ADDRESS = "159.223.79.46:5080";
+    private String streamUrl = "http://159.223.79.46:5080/WebRTCApp/play.html?name=";
 
     /**
      * Mode can Publish, Play or P2P
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements IWebRTCListener, 
     private boolean enableDataChannel = true;
 
 
-    public static final String SERVER_URL = "ws://" + SERVER_ADDRESS + "/WebRTCAppEE/websocket";
+    public static final String SERVER_URL = "ws://" + SERVER_ADDRESS + "/WebRTCApp/websocket";
 
     private WebRTCClient webRTCClient;
 
